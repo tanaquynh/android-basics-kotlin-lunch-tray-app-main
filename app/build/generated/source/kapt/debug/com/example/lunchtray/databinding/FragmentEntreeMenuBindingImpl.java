@@ -24,11 +24,11 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
     @Nullable
     private final android.view.View.OnClickListener mCallback15;
     @Nullable
+    private final android.view.View.OnClickListener mCallback19;
+    @Nullable
     private final android.view.View.OnClickListener mCallback16;
     @Nullable
     private final android.view.View.OnClickListener mCallback17;
-    @Nullable
-    private final android.view.View.OnClickListener mCallback13;
     @Nullable
     private final android.view.View.OnClickListener mCallback14;
     @Nullable
@@ -79,12 +79,12 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
         this.subtotal.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback15 = new com.example.lunchtray.generated.callback.OnClickListener(this, 3);
-        mCallback16 = new com.example.lunchtray.generated.callback.OnClickListener(this, 4);
-        mCallback17 = new com.example.lunchtray.generated.callback.OnClickListener(this, 5);
-        mCallback13 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
-        mCallback14 = new com.example.lunchtray.generated.callback.OnClickListener(this, 2);
-        mCallback18 = new com.example.lunchtray.generated.callback.OnClickListener(this, 6);
+        mCallback15 = new com.example.lunchtray.generated.callback.OnClickListener(this, 2);
+        mCallback19 = new com.example.lunchtray.generated.callback.OnClickListener(this, 6);
+        mCallback16 = new com.example.lunchtray.generated.callback.OnClickListener(this, 3);
+        mCallback17 = new com.example.lunchtray.generated.callback.OnClickListener(this, 4);
+        mCallback14 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
+        mCallback18 = new com.example.lunchtray.generated.callback.OnClickListener(this, 5);
         invalidateAll();
     }
 
@@ -169,6 +169,7 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
         com.example.lunchtray.model.MenuItem viewModelMenuItemsPasta = null;
         java.lang.String viewModelMenuItemsSkilletName = null;
         java.util.Map<java.lang.String,com.example.lunchtray.model.MenuItem> viewModelMenuItems = null;
+        java.lang.String javaLangStringSubtotalViewModelSubtotal = null;
         java.lang.String viewModelMenuItemsCauliflowerGetFormattedPrice = null;
         com.example.lunchtray.ui.order.EntreeMenuFragment entreeMenuFragment = mEntreeMenuFragment;
         java.lang.String viewModelMenuItemsSkilletDescription = null;
@@ -200,6 +201,10 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
                     // read viewModel.subtotal.getValue()
                     viewModelSubtotalGetValue = viewModelSubtotal.getValue();
                 }
+
+
+                // read ("Subtotal: ") + (viewModel.subtotal.getValue())
+                javaLangStringSubtotalViewModelSubtotal = ("Subtotal: ") + (viewModelSubtotalGetValue);
             if ((dirtyFlags & 0xcL) != 0) {
 
                     if (viewModel != null) {
@@ -258,12 +263,12 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
         if ((dirtyFlags & 0x8L) != 0) {
             // api target 1
 
-            this.cancelButton.setOnClickListener(mCallback17);
-            this.cauliflower.setOnClickListener(mCallback13);
-            this.chili.setOnClickListener(mCallback14);
-            this.nextButton.setOnClickListener(mCallback18);
-            this.pasta.setOnClickListener(mCallback15);
-            this.skillet.setOnClickListener(mCallback16);
+            this.cancelButton.setOnClickListener(mCallback18);
+            this.cauliflower.setOnClickListener(mCallback14);
+            this.chili.setOnClickListener(mCallback15);
+            this.nextButton.setOnClickListener(mCallback19);
+            this.pasta.setOnClickListener(mCallback16);
+            this.skillet.setOnClickListener(mCallback17);
         }
         if ((dirtyFlags & 0xcL) != 0) {
             // api target 1
@@ -284,13 +289,48 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
         if ((dirtyFlags & 0xdL) != 0) {
             // api target 1
 
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.subtotal, viewModelSubtotalGetValue);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.subtotal, javaLangStringSubtotalViewModelSubtotal);
         }
     }
     // Listener Stub Implementations
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
+            case 2: {
+                // localize variables for thread safety
+                // viewModel
+                com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
+                // viewModel != null
+                boolean viewModelJavaLangObjectNull = false;
+
+
+
+                viewModelJavaLangObjectNull = (viewModel) != (null);
+                if (viewModelJavaLangObjectNull) {
+
+
+
+                    viewModel.setEntree("chili");
+                }
+                break;
+            }
+            case 6: {
+                // localize variables for thread safety
+                // entreeMenuFragment
+                com.example.lunchtray.ui.order.EntreeMenuFragment entreeMenuFragment = mEntreeMenuFragment;
+                // entreeMenuFragment != null
+                boolean entreeMenuFragmentJavaLangObjectNull = false;
+
+
+
+                entreeMenuFragmentJavaLangObjectNull = (entreeMenuFragment) != (null);
+                if (entreeMenuFragmentJavaLangObjectNull) {
+
+
+                    entreeMenuFragment.goToNextScreen();
+                }
+                break;
+            }
             case 3: {
                 // localize variables for thread safety
                 // viewModel
@@ -327,23 +367,6 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
                 }
                 break;
             }
-            case 5: {
-                // localize variables for thread safety
-                // entreeMenuFragment
-                com.example.lunchtray.ui.order.EntreeMenuFragment entreeMenuFragment = mEntreeMenuFragment;
-                // entreeMenuFragment != null
-                boolean entreeMenuFragmentJavaLangObjectNull = false;
-
-
-
-                entreeMenuFragmentJavaLangObjectNull = (entreeMenuFragment) != (null);
-                if (entreeMenuFragmentJavaLangObjectNull) {
-
-
-                    entreeMenuFragment.cancelOrder();
-                }
-                break;
-            }
             case 1: {
                 // localize variables for thread safety
                 // viewModel
@@ -362,25 +385,7 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
                 }
                 break;
             }
-            case 2: {
-                // localize variables for thread safety
-                // viewModel
-                com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
-                // viewModel != null
-                boolean viewModelJavaLangObjectNull = false;
-
-
-
-                viewModelJavaLangObjectNull = (viewModel) != (null);
-                if (viewModelJavaLangObjectNull) {
-
-
-
-                    viewModel.setEntree("chili");
-                }
-                break;
-            }
-            case 6: {
+            case 5: {
                 // localize variables for thread safety
                 // entreeMenuFragment
                 com.example.lunchtray.ui.order.EntreeMenuFragment entreeMenuFragment = mEntreeMenuFragment;
@@ -393,7 +398,7 @@ public class FragmentEntreeMenuBindingImpl extends FragmentEntreeMenuBinding imp
                 if (entreeMenuFragmentJavaLangObjectNull) {
 
 
-                    entreeMenuFragment.goToNextScreen();
+                    entreeMenuFragment.cancelOrder();
                 }
                 break;
             }

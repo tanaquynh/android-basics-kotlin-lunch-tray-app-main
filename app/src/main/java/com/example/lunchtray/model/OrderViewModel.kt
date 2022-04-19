@@ -15,6 +15,8 @@
  */
 package com.example.lunchtray.model
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -174,5 +176,8 @@ class OrderViewModel : ViewModel() {
         _entree.value = null
         _side.value = null
         _accompaniment.value = null
+        previousEntreePrice = 0.0
+        previousAccompanimentPrice = 0.0
+        previousSidePrice = 0.0
     }
 }

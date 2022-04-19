@@ -24,7 +24,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
     @Nullable
     private final android.view.View.OnClickListener mCallback6;
     @Nullable
-    private final android.view.View.OnClickListener mCallback5;
+    private final android.view.View.OnClickListener mCallback7;
     // values
     // listeners
     // Inverse Binding Event Handlers
@@ -63,8 +63,8 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         this.total.setTag(null);
         setRootTag(root);
         // listeners
-        mCallback6 = new com.example.lunchtray.generated.callback.OnClickListener(this, 2);
-        mCallback5 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
+        mCallback6 = new com.example.lunchtray.generated.callback.OnClickListener(this, 1);
+        mCallback7 = new com.example.lunchtray.generated.callback.OnClickListener(this, 2);
         invalidateAll();
     }
 
@@ -202,6 +202,7 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         androidx.lifecycle.LiveData<java.lang.String> viewModelSubtotal = null;
         java.lang.String viewModelEntreeFormattedPrice = null;
         java.lang.String viewModelTaxGetValue = null;
+        java.lang.String javaLangStringSubtotalViewModelSubtotal = null;
         com.example.lunchtray.model.MenuItem viewModelEntreeGetValue = null;
         com.example.lunchtray.model.MenuItem viewModelSideGetValue = null;
         java.lang.String viewModelSubtotalGetValue = null;
@@ -210,10 +211,12 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         java.lang.String viewModelSideFormattedPrice = null;
         androidx.lifecycle.LiveData<com.example.lunchtray.model.MenuItem> viewModelEntree = null;
         java.lang.String viewModelAccompanimentName = null;
+        java.lang.String javaLangStringTaxViewModelTax = null;
         androidx.lifecycle.LiveData<java.lang.String> viewModelTotal = null;
         androidx.lifecycle.LiveData<com.example.lunchtray.model.MenuItem> viewModelSide = null;
         java.lang.String viewModelEntreeName = null;
         java.lang.String viewModelSideName = null;
+        java.lang.String javaLangStringTotalViewModelTotal = null;
         java.lang.String viewModelTotalGetValue = null;
         com.example.lunchtray.model.OrderViewModel viewModel = mViewModel;
         androidx.lifecycle.LiveData<java.lang.String> viewModelTax = null;
@@ -257,6 +260,10 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
                         // read viewModel.subtotal.getValue()
                         viewModelSubtotalGetValue = viewModelSubtotal.getValue();
                     }
+
+
+                    // read ("Subtotal: ") + (viewModel.subtotal.getValue())
+                    javaLangStringSubtotalViewModelSubtotal = ("Subtotal: ") + (viewModelSubtotalGetValue);
             }
             if ((dirtyFlags & 0x184L) != 0) {
 
@@ -293,6 +300,10 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
                         // read viewModel.total.getValue()
                         viewModelTotalGetValue = viewModelTotal.getValue();
                     }
+
+
+                    // read ("Total: ") + (viewModel.total.getValue())
+                    javaLangStringTotalViewModelTotal = ("Total: ") + (viewModelTotalGetValue);
             }
             if ((dirtyFlags & 0x190L) != 0) {
 
@@ -329,6 +340,10 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
                         // read viewModel.tax.getValue()
                         viewModelTaxGetValue = viewModelTax.getValue();
                     }
+
+
+                    // read ("Tax: ") + (viewModel.tax.getValue())
+                    javaLangStringTaxViewModelTax = ("Tax: ") + (viewModelTaxGetValue);
             }
         }
         // batch finished
@@ -341,8 +356,8 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         if ((dirtyFlags & 0x100L) != 0) {
             // api target 1
 
-            this.cancelButton.setOnClickListener(mCallback6);
-            this.submitButton.setOnClickListener(mCallback5);
+            this.cancelButton.setOnClickListener(mCallback7);
+            this.submitButton.setOnClickListener(mCallback6);
         }
         if ((dirtyFlags & 0x184L) != 0) {
             // api target 1
@@ -359,40 +374,23 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
         if ((dirtyFlags & 0x182L) != 0) {
             // api target 1
 
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.subtotal, viewModelSubtotalGetValue);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.subtotal, javaLangStringSubtotalViewModelSubtotal);
         }
         if ((dirtyFlags & 0x1a0L) != 0) {
             // api target 1
 
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.tax, viewModelTaxGetValue);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.tax, javaLangStringTaxViewModelTax);
         }
         if ((dirtyFlags & 0x188L) != 0) {
             // api target 1
 
-            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.total, viewModelTotalGetValue);
+            androidx.databinding.adapters.TextViewBindingAdapter.setText(this.total, javaLangStringTotalViewModelTotal);
         }
     }
     // Listener Stub Implementations
     // callback impls
     public final void _internalCallbackOnClick(int sourceId , android.view.View callbackArg_0) {
         switch(sourceId) {
-            case 2: {
-                // localize variables for thread safety
-                // checkoutFragment != null
-                boolean checkoutFragmentJavaLangObjectNull = false;
-                // checkoutFragment
-                com.example.lunchtray.ui.order.CheckoutFragment checkoutFragment = mCheckoutFragment;
-
-
-
-                checkoutFragmentJavaLangObjectNull = (checkoutFragment) != (null);
-                if (checkoutFragmentJavaLangObjectNull) {
-
-
-                    checkoutFragment.cancelOrder();
-                }
-                break;
-            }
             case 1: {
                 // localize variables for thread safety
                 // checkoutFragment != null
@@ -407,6 +405,23 @@ public class FragmentCheckoutBindingImpl extends FragmentCheckoutBinding impleme
 
 
                     checkoutFragment.submitOrder();
+                }
+                break;
+            }
+            case 2: {
+                // localize variables for thread safety
+                // checkoutFragment != null
+                boolean checkoutFragmentJavaLangObjectNull = false;
+                // checkoutFragment
+                com.example.lunchtray.ui.order.CheckoutFragment checkoutFragment = mCheckoutFragment;
+
+
+
+                checkoutFragmentJavaLangObjectNull = (checkoutFragment) != (null);
+                if (checkoutFragmentJavaLangObjectNull) {
+
+
+                    checkoutFragment.cancelOrder();
                 }
                 break;
             }

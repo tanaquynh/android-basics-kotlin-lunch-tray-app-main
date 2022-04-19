@@ -6,8 +6,6 @@ import android.view.View;
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
-
-import com.example.lunchtray.databinding.FragmentAccompanimentMenuBinding;
 import com.example.lunchtray.databinding.FragmentAccompanimentMenuBindingImpl;
 import com.example.lunchtray.databinding.FragmentCheckoutBindingImpl;
 import com.example.lunchtray.databinding.FragmentEntreeMenuBindingImpl;
@@ -51,7 +49,7 @@ public class DataBinderMapperImpl extends DataBinderMapper {
       switch(localizedLayoutId) {
         case  LAYOUT_FRAGMENTACCOMPANIMENTMENU: {
           if ("layout/fragment_accompaniment_menu_0".equals(tag)) {
-            return new FragmentAccompanimentMenuBindingIml(component, view);
+            return new FragmentAccompanimentMenuBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for fragment_accompaniment_menu is invalid. Received: " + tag);
         }
@@ -118,14 +116,15 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerBrLookup {
-    static final SparseArray<String> sKeys = new SparseArray<String>(5);
+    static final SparseArray<String> sKeys = new SparseArray<String>(6);
 
     static {
       sKeys.put(0, "_all");
-      sKeys.put(1, "checkoutFragment");
-      sKeys.put(2, "entreeMenuFragment");
-      sKeys.put(3, "sideMenuFragment");
-      sKeys.put(4, "viewModel");
+      sKeys.put(1, "accompanimentMenuFragment");
+      sKeys.put(2, "checkoutFragment");
+      sKeys.put(3, "entreeMenuFragment");
+      sKeys.put(4, "sideMenuFragment");
+      sKeys.put(5, "viewModel");
     }
   }
 
